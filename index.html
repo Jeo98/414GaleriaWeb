@@ -3,456 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>414 Galería | Bar en Güemes Córdoba | Reservas Boliche en Córdoba</title>
-    
-    <meta name="description" content="414 Galería: El bar más vibrante de Güemes, Córdoba. Cocktails de autor, DJ sets y el mejor ambiente nocturno. ¡Reservá tu mesa ahora!">
-    <meta name="keywords" content="Bar en Güemes Córdoba, Boliche en Córdoba, Reservas bar en Córdoba, Coctelería Córdoba, Salir en Córdoba">
+    <meta name="description" content="414 Galería: Bar premium y boliche en Güemes, Córdoba, Argentina. Reservas online, eventos nocturnos, música en vivo, DJ y cócteles especiales. Experiencia urbana vibrante.">
+    <meta name="keywords" content="bar en Güemes Córdoba, boliche en Córdoba, reservas bar en Córdoba, bar nocturno Córdoba, eventos Córdoba, música en vivo Córdoba, DJ Córdoba, happy hour Córdoba">
     <meta name="author" content="414 Galería">
-    <link rel="canonical" href="https://414galeria.com.ar">
-
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="414 Galería - Bar en Güemes Córdoba | Boliche en Córdoba">
+    <meta property="og:description" content="Descubre la noche en 414 Galería: música pulsante, cócteles innovadores y ambiente urbano premium en Córdoba.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.414galeria.com">
+    <meta property="og:image" content="414GaleriaWeb/images/ambiente.jpg">
+    <title>414 Galería - Bar en Güemes Córdoba | Boliche en Córdoba | Reservas bar en Córdoba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #141414;
-            --accent-neon: #ff0055;
-            --accent-cyan: #00f2ff;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
-
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            font-family: var(--font-main);
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
         }
-
-        /* --- Animaciones --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
         }
-
-        .reveal.active {
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 2px solid #ff00ff;
+            color: #fff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+        }
+        .btn:hover {
+            background-color: #ff00ff;
+            box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+            color: #000;
+        }
+        .neon-glow {
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* --- Header / Nav --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            color: var(--text-white);
-            text-transform: uppercase;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
+        /* Hero */
+        #hero {
             height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('414GaleriaWeb/images/ambiente.jpg') center/cover no-repeat;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), 
-                        url('images/ambiente.jpg') center/cover no-repeat;
-            padding: 0 20px;
         }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            line-height: 1;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            color: var(--accent-cyan);
-            margin-bottom: 40px;
-            font-weight: 300;
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-        }
-
-        /* --- Botones --- */
-        .btn {
-            display: inline-block;
-            padding: 18px 40px;
-            background: transparent;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            border: 2px solid var(--text-white);
-            border-radius: 50px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            border-color: var(--accent-neon);
-            color: white;
-            box-shadow: 0 0 20px var(--accent-neon);
-            transform: scale(1.05);
-        }
-
-        .btn-filled {
-            background: var(--text-white);
-            color: var(--bg-dark);
-        }
-
-        /* --- Secciones Generales --- */
-        section {
-            padding: 100px 10%;
-        }
-
-        h2 {
+        #hero h1 {
             font-size: 2.5rem;
-            margin-bottom: 40px;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        /* --- Sobre 414 --- */
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-text p {
             margin-bottom: 20px;
-            color: var(--text-gray);
-            font-size: 1.1rem;
         }
-
-        @media (max-width: 768px) {
-            .about { grid-template-columns: 1fr; text-align: center; }
-            section { padding: 60px 5%; }
+        @media (min-width: 768px) {
+            #hero h1 {
+                font-size: 4rem;
+            }
         }
-
-        /* --- Servicios --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+        /* Sections */
+        section {
+            padding: 60px 0;
         }
-
-        .service-card {
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 15px;
+        h2 {
             text-align: center;
-            border: 1px solid #222;
-            transition: var(--transition);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #00ffff;
         }
-
-        .service-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-10px);
+        /* About */
+        #about p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-            color: var(--accent-cyan);
-        }
-
-        /* --- Eventos (Cards) --- */
-        .event-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #333;
-        }
-
-        .event-content { padding: 30px; }
-
-        /* --- Galería --- */
-        .gallery {
+        /* Services */
+        #services .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            filter: grayscale(40%);
-            transition: var(--transition);
-        }
-
-        .gallery img:hover {
-            filter: grayscale(0%);
-            transform: scale(1.02);
-        }
-
-        /* --- Reseñas --- */
-        .reviews-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 20px;
         }
-
-        .review-card {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 10px;
-            font-style: italic;
-            border-left: 4px solid var(--accent-neon);
+        @media (min-width: 768px) {
+            #services .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
-
-        /* --- Mapa y Footer --- */
-        .map-container {
+        .service-card {
+            background: #111;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ff00ff;
+            transition: box-shadow 0.3s;
+        }
+        .service-card:hover {
+            box-shadow: 0 0 15px #ff00ff;
+        }
+        /* Events */
+        #events .events-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            #events .events-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .event-card {
+            background: #111;
+            padding: 20px;
+            border: 1px solid #00ffff;
+        }
+        .event-card h3 {
+            color: #00ffff;
+        }
+        /* Gallery */
+        #gallery .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        @media (min-width: 768px) {
+            #gallery .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        #gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .instagram-reel {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        /* Reviews */
+        #reviews .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            #reviews .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .review-card {
+            background: #111;
+            padding: 20px;
+            border: 1px solid #ff00ff;
+            font-style: italic;
+            text-align: center;
+        }
+        /* Location */
+        #location {
+            text-align: center;
+        }
+        #location ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+        /* Map */
+        #map iframe {
             width: 100%;
             height: 400px;
-            filter: invert(90%) hue-rotate(180deg);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-top: 30px;
+            border: 0;
         }
-
+        /* Footer */
         footer {
-            background: #050505;
-            padding: 80px 10% 40px;
-            border-top: 1px solid #222;
+            background: #111;
+            padding: 40px 0;
+            text-align: center;
         }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+        footer a {
+            margin: 0 10px;
+            color: #00ffff;
         }
-
-        .footer-links a {
-            display: block;
-            color: var(--text-gray);
-            text-decoration: none;
-            margin-bottom: 10px;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover { color: var(--accent-neon); }
-
-        /* --- WhatsApp --- */
-        .wpp-btn {
+        /* WhatsApp Button */
+        .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1001;
-            transition: var(--transition);
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
+            transition: box-shadow 0.3s;
+            z-index: 1000;
         }
-
-        .wpp-btn:hover { transform: scale(1.1); }
-        .wpp-btn svg { fill: white; width: 30px; }
-
+        .whatsapp-float:hover {
+            box-shadow: 0 0 20px #25D366;
+        }
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
     </style>
 </head>
 <body>
-
-   <nav>
-    <div class="logo" style="display: flex; align-items: center; gap: 10px;">
-        <img src="414GaleriaWeb/images/logo414galeria.jpg" alt="414 Galería" style="height: 50px; width: auto; object-fit: contain;">
-        <span style="display: none;">414 Galería</span> 
-    </div>
-    <a href="https://4-14.meitre.com/" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Reservar</a>
-</nav>
-
-  
-
-    <header class="hero">
-        <h1 class="reveal">Donde los planes<br>se arman solos 🍸🎧</h1>
-        <p class="reveal">Experiencia nocturna en el corazón de Güemes.</p>
-        <div class="reveal">
-            <a src  href="https://4-14.meitre.com/" class="btn btn-filled">Reservá tu mesa</a>
+    <section id="hero" class="fade-in">
+        <div class="container">
+            <h1 class="neon-glow">Donde los planes se arman solos 🍸🎧</h1>
+            <a href="https://4-14.meitre.com/" class="btn">Reservá tu mesa</a>
         </div>
-    </header>
+    </section>
 
-    <section id="sobre" class="about">
-        <div class="about-text reveal">
+    <section id="about" class="fade-in">
+        <div class="container">
             <h2>Sobre 414 Galería</h2>
-            <p>Somos el epicentro de la noche en Córdoba. Un espacio diseñado para quienes buscan coctelería de autor, una gastronomía urbana audaz y los mejores DJ sets de la ciudad.</p>
-            <p>Ubicados en la mística calle Fructuoso Rivera, fusionamos el arte de la galería con la energía de la noche.</p>
-            <a href="https://drive.google.com/file/d/11mSS2E2MKzjlf5OeuDNSKxFH7zO-pOFu/view?usp=sharing" target="_blank" class="btn">Ver Menú</a>
-        </div>
-        <div class="reveal">
-            <img src="images/ambiente.jpg" alt="Ambiente 414" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+            <p>Sumérgete en la vibrante noche cordobesa en 414 Galería, un bar y boliche premium donde la música pulsante, los cócteles artesanales y el ambiente urbano crean experiencias inolvidables. Disfruta de ritmos electrónicos, luces neón y una atmósfera que invita a bailar hasta el amanecer. Perfecto para noches épicas en Güemes, Córdoba.</p>
         </div>
     </section>
 
-    <section id="servicios">
-        <h2 class="reveal">The Experience</h2>
-        <div class="services-grid">
-            <div class="service-card reveal">
-                <h3>Happy Hour</h3>
-                <p>Arrancamos temprano con los mejores precios en tragos seleccionados.</p>
-            </div>
-            <div class="service-card reveal">
-                <h3>DJ Sets</h3>
-                <p>Line up exclusivo todos los fines de semana para elevar la noche.</p>
-            </div>
-            <div class="service-card reveal">
-                <h3>Cocktails</h3>
-                <p>Mezclas de autor que no vas a encontrar en ningún otro bar de Güemes.</p>
-            </div>
-            <div class="service-card reveal">
-                <h3>Eventos</h3>
-                <p>Noches temáticas y presentaciones especiales cada mes.</p>
+    <section id="services" class="fade-in">
+        <div class="container">
+            <h2>Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card"><h3>Happy Hour</h3><p>Descuentos irresistibles en bebidas al atardecer.</p></div>
+                <div class="service-card"><h3>Música en vivo</h3><p>Artistas locales que encienden la noche.</p></div>
+                <div class="service-card"><h3>DJ los fines de semana</h3><p>Sets explosivos para bailar sin parar.</p></div>
+                <div class="service-card"><h3>Eventos temáticos</h3><p>Noches especiales con temáticas únicas.</p></div>
+                <div class="service-card"><h3>Cócteles especiales</h3><p>Creaciones innovadoras con sabores premium.</p></div>
             </div>
         </div>
     </section>
 
-    <section id="galeria">
-        <h2 class="reveal">Galería</h2>
-        <div class="gallery">
-            <img class="reveal" src="414GaleriaWeb/images/personas3.jpg" alt="Gente3">
-            <img class="reveal" src="414GaleriaWeb/images/persona2.jpg" alt="Gente2">
-            <img class="reveal" src="414GaleriaWeb/images/comida.jpg" alt="comida">
-            <img class="reveal" src="414GaleriaWeb/images/dj.jpg" alt="DJ en vivo">
-            <img class="reveal" src="414GaleriaWeb/images/cocktail.jpg" alt="Coctelería">
-            <img class="reveal" src="414GaleriaWeb/images/ambiente.jpg" alt="Local">
-            <img class="reveal" src="414GaleriaWeb/images/tragos.jpg" alt="Tragos 414">
-            <img class="reveal" src="414GaleriaWeb/images/personas5.jpg" alt="Gente6">
-        </div>
-        <div class="gallery" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-bottom: 30px;">
-        <div class="reveal" style="border-radius: 15px; overflow: hidden; background: #000;">
-            <iframe src="https://www.instagram.com/p/DURidsnjtAH/embed" width="100%" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-        </div>
-        <div class="reveal" style="border-radius: 15px; overflow: hidden; background: #000;">
-            <iframe src="https://www.instagram.com/p/DQozdv0jtex/embed" width="100%" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-        </div>
-        <div class="reveal" style="border-radius: 15px; overflow: hidden; background: #000;">
-            <iframe src="https://www.instagram.com/p/DQZuQz8DkCN/embed" width="100%" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-        </div>
-        <div class="reveal" style="border-radius: 15px; overflow: hidden; background: #000;">
-            <iframe src="https://www.instagram.com/p/DUlRzArjudC/embed" width="100%" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-        </div>
-    </div>
-
-        
-    </section>
-
-
-    <section id="reseñas">
-        <h2 class="reveal">Lo que dicen de nosotros</h2>
-        <div class="reviews-container">
-            <div class="review-card reveal">
-                <p>"Muy buen lugar para tomar cerveza y comer unas hamburguesas o rabas."</p>
-            </div>
-            <div class="review-card reveal">
-                <p>"Buena cerveza, picada mixta muy rica, muy buen ambiente."</p>
-            </div>
-            <div class="review-card reveal">
-                <p>"Es buenísima la cerveza y el ambiente."</p>
+    <section id="events" class="fade-in">
+        <div class="container">
+            <h2>Eventos Próximos</h2>
+            <div class="events-grid">
+                <!-- Editable cards -->
+                <div class="event-card"><h3>Fiesta Neón</h3><p>Fecha: 20/02/2026 - DJ invitado y luces espectaculares.</p></div>
+                <div class="event-card"><h3>Noche Latina</h3><p>Fecha: 27/02/2026 - Ritmos calientes y cócteles tropicales.</p></div>
+                <div class="event-card"><h3>Live Session</h3><p>Fecha: 05/03/2026 - Bandas en vivo y happy hour extendido.</p></div>
             </div>
         </div>
     </section>
 
-    <section id="ubicacion">
-        <h2 class="reveal">Vení a conocernos</h2>
-        <div style="text-align: center; margin-bottom: 40px;" class="reveal">
-            <p>Fructuoso Rivera 260, Güemes, Córdoba</p>
-            <p><strong>MIÉRCOLES A DOMINGOS · Desde las 18 hs</strong></p>
+    <section id="gallery" class="fade-in">
+        <div class="container">
+            <h2>Galería</h2>
+            <div class="gallery-grid">
+                <img src="414GaleriaWeb/images/personas3.jpg" alt="Ambiente nocturno">
+                <img src="414GaleriaWeb/images/persona2.jpg" alt="Personas disfrutando">
+                <img src="414GaleriaWeb/images/comida.jpg" alt="Comida deliciosa">
+                <img src="414GaleriaWeb/images/dj.jpg" alt="DJ en acción">
+                <img src="414GaleriaWeb/images/cocktail.jpg" alt="Cóctel especial">
+                <img src="414GaleriaWeb/images/ambiente.jpg" alt="Ambiente vibrante">
+                <img src="414GaleriaWeb/images/tragos.jpg" alt="Tragos premium">
+                <img src="414GaleriaWeb/images/personas5.jpg" alt="Grupo de amigos">
+            </div>
+            <h3>Reels</h3>
+            <div class="instagram-reel">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DURidsnjtAH/?hl=es" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="instagram-reel">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQozdv0jtex/?hl=es" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="instagram-reel">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQZuQz8DkCN/?hl=es" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="instagram-reel">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DUlRzArjudC/?hl=es" data-instgrm-version="14"></blockquote>
+            </div>
         </div>
-        <div class="map-container reveal">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.665181136458!2d-64.1932375!3d-31.4233157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a28f86918889%3A0x6b40348259d33267!2sFructuoso%20Rivera%20260%2C%20X5000%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <section id="reviews" class="fade-in">
+        <div class="container">
+            <h2>Reseñas Destacadas</h2>
+            <div class="reviews-grid">
+                <div class="review-card">"Muy buen lugar para tomar cerveza y comer unas hamburguesas o rabas"</div>
+                <div class="review-card">"Buena cerveza, picada mixta muy rica, muu buen ambiente"</div>
+                <div class="review-card">"Es buenísima la cerveza y el ambiente"</div>
+            </div>
         </div>
+    </section>
+
+    <section id="location" class="fade-in">
+        <div class="container">
+            <h2>Ubicación y Horarios</h2>
+            <p>Fructuoso Rivera 260, Córdoba, Argentina</p>
+            <ul>
+                <li>Viernes y sábado: 20:00 – 05:00</li>
+                <li>Domingo: 20:00 – 03:00</li>
+                <li>Lunes a miércoles: 20:00 – 02:00</li>
+                <li>Jueves: 20:00 – 05:00</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="map" class="fade-in">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.0000000000005!2d-64.19218768499999!3d-31.423000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432987b0a000001%3A0x1!2sFructuoso%20Rivera%20260%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-links">
-                <h4 style="margin-bottom: 20px;">CONTACTO</h4>
-                <p>Tel: 0351 742-2360</p>
-                <p>Fructuoso Rivera 260</p>
-            </div>
-            <div class="footer-links">
-                <h4 style="margin-bottom: 20px;">CARTAS</h4>
-                <a href="https://drive.google.com/file/d/11mSS2E2MKzjlf5OeuDNSKxFH7zO-pOFu/view?usp=sharing">Menú Comida</a>
-                <a href="https://drive.google.com/file/d/1elfvkadhhB04yGcPwEJMlQMBz96hPMAw/view?usp=sharing">Tragos y Bebidas</a>
-            </div>
-            <div class="footer-links">
-                <h4 style="margin-bottom: 20px;">SOCIAL</h4>
-                <a href="https://www.instagram.com/414_galeria/">Instagram</a>
-                <a href="https://www.tiktok.com/@414.galeria">TikTok</a>
-                <a href="https://www.facebook.com/414.galeria">Facebook</a>
-            </div>
-        </div>
-        <div style="text-align: center; color: #444; font-size: 0.8rem; margin-top: 50px;">
-            &copy; 2026 CUATRO CATORCE GALERÍA. Córdoba, Argentina.
+        <div class="container">
+            <p>Teléfono: 0351 742-2360</p>
+            <a href="https://www.instagram.com/414_galeria/" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/414.galeria" target="_blank">Facebook</a>
+            <a href="https://www.tiktok.com/@414.galeria" target="_blank">TikTok</a>
+            <a href="#" target="_blank">Carta Menú</a>
+            <a href="#" target="_blank">Carta Tragos</a>
         </div>
     </footer>
 
-    <a href="https://wa.me/543517422360" class="wpp-btn" target="_blank">
-        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+    <a href="https://wa.me/543517422360" target="_blank" class="whatsapp-float">
+        <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.836.74 5.49 2.03 7.78L0 32l8.22-2.03C10.51 31.26 13.164 32 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333c-2.47 0-4.786-.633-6.828-1.74l-.477-.28-4.88 1.207 1.207-4.88-.28-.477c-1.107-2.042-1.74-4.358-1.74-6.828 0-7.552 6.148-13.7 13.7-13.7s13.7 6.148 13.7 13.7-6.148 13.7-13.7 13.7zm7.51-17.333c-.42-.21-2.487-1.227-2.877-1.367-.39-.14-.673-.21-.957.21-.283.42-1.097 1.367-1.347 1.647-.25.28-.5.317-.92.107-.42-.21-1.777-.653-3.387-2.087-1.323-1.183-2.217-2.643-2.467-3.063-.25-.42-.027-.647.187-.857.193-.187.42-.483.63-.727.21-.243.28-.407.42-.687.14-.28.07-.527-.033-.737-.103-.21-.957-2.307-1.317-3.157-.35-.833-.703-.717-.957-.717-.247-.003-.533-.003-.82 0-.287.003-1.257.483-1.477 1.203-.22.72-.22 1.333.063 1.953.283.62.993 1.507 2.137 3.287 2.857 4.447 4.447 5.127 5.127 5.407.167.07.293.12.427.177.68.287 1.293.247 1.78.15.547-.11 1.68-.687 1.92-1.35.24-.663.24-1.233.167-1.35-.073-.117-.26-.183-.68-.393z"/></svg>
     </a>
 
+    <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Animación al hacer Scroll
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
             }
-        }
-
-        window.addEventListener("scroll", reveal);
-        // Ejecutar al cargar para elementos en el hero
-        window.onload = reveal;
+        });
     </script>
 </body>
-
 </html>
-
-
-
-
-
