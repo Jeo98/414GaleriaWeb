@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>414 Galería | Bar en Güemes Córdoba | Reservas Boliche en Córdoba</title>
+    
+    <meta name="description" content="414 Galería: El bar más vibrante de Güemes, Córdoba. Cocktails de autor, DJ sets y el mejor ambiente nocturno. ¡Reservá tu mesa ahora!">
+    <meta name="keywords" content="Bar en Güemes Córdoba, Boliche en Córdoba, Reservas bar en Córdoba, Coctelería Córdoba, Salir en Córdoba">
+    <meta name="author" content="414 Galería">
+    <link rel="canonical" href="https://414galeria.com.ar">
+
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --accent-neon: #ff0055;
+            --accent-cyan: #00f2ff;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Animaciones --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Header / Nav --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--text-white);
+            text-transform: uppercase;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), 
+                        url('images/ambiente.jpg') center/cover no-repeat;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--accent-cyan);
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        /* --- Botones --- */
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid var(--text-white);
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            border-color: var(--accent-neon);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-neon);
+            transform: scale(1.05);
+        }
+
+        .btn-filled {
+            background: var(--text-white);
+            color: var(--bg-dark);
+        }
+
+        /* --- Secciones Generales --- */
+        section {
+            padding: 100px 10%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* --- Sobre 414 --- */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .about { grid-template-columns: 1fr; text-align: center; }
+            section { padding: 60px 5%; }
+        }
+
+        /* --- Servicios --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--accent-cyan);
+        }
+
+        /* --- Eventos (Cards) --- */
+        .event-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+        }
+
+        .event-content { padding: 30px; }
+
+        /* --- Galería --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            filter: grayscale(40%);
+            transition: var(--transition);
+        }
+
+        .gallery img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        /* --- Reseñas --- */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            font-style: italic;
+            border-left: 4px solid var(--accent-neon);
+        }
+
+        /* --- Mapa y Footer --- */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            filter: invert(90%) hue-rotate(180deg);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        footer {
+            background: #050505;
+            padding: 80px 10% 40px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--text-gray);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover { color: var(--accent-neon); }
+
+        /* --- WhatsApp --- */
+        .wpp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1001;
+            transition: var(--transition);
+        }
+
+        .wpp-btn:hover { transform: scale(1.1); }
+        .wpp-btn svg { fill: white; width: 30px; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+    <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="logo 414galeria.jpg" alt="414 Galería Logo" style="height: 50px; width: auto; object-fit: contain;">
+        <span style="display: none;">414 Galería</span> 
+    </div>
+    <a href="https://4-14.meitre.com/" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Reservar</a>
+</nav>
+
+  
+
+    <header class="hero">
+        <h1 class="reveal">Donde los planes<br>se arman solos 🍸🎧</h1>
+        <p class="reveal">Experiencia nocturna en el corazón de Güemes.</p>
+        <div class="reveal">
+            <a src  href="https://4-14.meitre.com/" class="btn btn-filled">Reservá tu mesa</a>
+        </div>
+    </header>
+
+    <section id="sobre" class="about">
+        <div class="about-text reveal">
+            <h2>Sobre 414 Galería</h2>
+            <p>Somos el epicentro de la noche en Córdoba. Un espacio diseñado para quienes buscan coctelería de autor, una gastronomía urbana audaz y los mejores DJ sets de la ciudad.</p>
+            <p>Ubicados en la mística calle Fructuoso Rivera, fusionamos el arte de la galería con la energía de la noche.</p>
+            <a href="https://drive.google.com/file/d/11mSS2E2MKzjlf5OeuDNSKxFH7zO-pOFu/view?usp=sharing" target="_blank" class="btn">Ver Menú</a>
+        </div>
+        <div class="reveal">
+            <img src="images/ambiente.jpg" alt="Ambiente 414" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+        </div>
+    </section>
+
+    <section id="servicios">
+        <h2 class="reveal">The Experience</h2>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <h3>Happy Hour</h3>
+                <p>Arrancamos temprano con los mejores precios en tragos seleccionados.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>DJ Sets</h3>
+                <p>Line up exclusivo todos los fines de semana para elevar la noche.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Cocktails</h3>
+                <p>Mezclas de autor que no vas a encontrar en ningún otro bar de Güemes.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Eventos</h3>
+                <p>Noches temáticas y presentaciones especiales cada mes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2 class="reveal">Galería</h2>
+        <div class="gallery">
+            <img class="reveal" src="images/personas.jpg" alt="Gente">
+            <img class="reveal" src="images/persona2.jpg" alt="Gente2">
+            <img class="reveal" src="images/fiesta1.jpg" alt="Fiesta 414">
+            <img class="reveal" src="images/dj.jpg" alt="DJ en vivo">
+            <img class="reveal" src="images/cocktail.jpg" alt="Coctelería">
+            <img class="reveal" src="images/ambiente.jpg" alt="Local">
+            <img class="reveal" src="images/tragos.jpg" alt="Tragos 414">
+        </div>
+    </section>
+
+    <section id="reseñas">
+        <h2 class="reveal">Lo que dicen de nosotros</h2>
+        <div class="reviews-container">
+            <div class="review-card reveal">
+                <p>"Muy buen lugar para tomar cerveza y comer unas hamburguesas o rabas."</p>
+            </div>
+            <div class="review-card reveal">
+                <p>"Buena cerveza, picada mixta muy rica, muy buen ambiente."</p>
+            </div>
+            <div class="review-card reveal">
+                <p>"Es buenísima la cerveza y el ambiente."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ubicacion">
+        <h2 class="reveal">Vení a conocernos</h2>
+        <div style="text-align: center; margin-bottom: 40px;" class="reveal">
+            <p>Fructuoso Rivera 260, Güemes, Córdoba</p>
+            <p><strong>MIÉRCOLES A DOMINGOS · Desde las 18 hs</strong></p>
+        </div>
+        <div class="map-container reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.665181136458!2d-64.1932375!3d-31.4233157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a28f86918889%3A0x6b40348259d33267!2sFructuoso%20Rivera%20260%2C%20X5000%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-links">
+                <h4 style="margin-bottom: 20px;">CONTACTO</h4>
+                <p>Tel: 0351 742-2360</p>
+                <p>Fructuoso Rivera 260</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="margin-bottom: 20px;">CARTAS</h4>
+                <a href="https://drive.google.com/file/d/11mSS2E2MKzjlf5OeuDNSKxFH7zO-pOFu/view?usp=sharing">Menú Comida</a>
+                <a href="https://drive.google.com/file/d/1elfvkadhhB04yGcPwEJMlQMBz96hPMAw/view?usp=sharing">Tragos y Bebidas</a>
+            </div>
+            <div class="footer-links">
+                <h4 style="margin-bottom: 20px;">SOCIAL</h4>
+                <a href="https://www.instagram.com/414_galeria/">Instagram</a>
+                <a href="https://www.tiktok.com/@414.galeria">TikTok</a>
+                <a href="https://www.facebook.com/414.galeria">Facebook</a>
+            </div>
+        </div>
+        <div style="text-align: center; color: #444; font-size: 0.8rem; margin-top: 50px;">
+            &copy; 2026 CUATRO CATORCE GALERÍA. Córdoba, Argentina.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/543517422360" class="wpp-btn" target="_blank">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+    </a>
+
+    <script>
+        // Animación al hacer Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Ejecutar al cargar para elementos en el hero
+        window.onload = reveal;
+    </script>
+</body>
+</html>
